@@ -27,9 +27,9 @@ Una sola variable afecta al SEO:
 
 ## Checklist antes de publicar
 
-- [ ] Confirmar/corregir la dirección exacta en `src/content/restaurant.ts` (`address`) — hoy es una aproximación por geocodificación inversa, ver la nota en ese archivo.
-- [ ] Agregar horarios (`src/content/hours.ts`, no existe todavía) cuando el usuario los proporcione.
-- [ ] Agregar fotos reales (Hero como mínimo; Galería si se decide incluirla) y reemplazar los placeholders marcados en el código.
+- [x] Dirección confirmada por el usuario en `src/content/restaurant.ts` (`address`).
+- [x] Horarios cargados en `src/content/hours.ts`.
+- [ ] Agregar fotos reales (carrusel del Hero y galería de Catering) en `src/content/gallery.ts` — ver `docs/CONTENT.md`.
 - [ ] Poner las URLs reales de Instagram/TikTok en `src/content/social.ts` en cuanto existan las cuentas.
 - [ ] Configurar `NEXT_PUBLIC_SITE_URL` con el dominio final (ver arriba).
 - [ ] Verificar `git status`/`git log` — este proyecto no se commiteó automáticamente durante el desarrollo (el usuario lo hace manualmente), confirmar que todo lo necesario esté en el repositorio antes de desplegar.

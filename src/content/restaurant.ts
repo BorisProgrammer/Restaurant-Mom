@@ -1,11 +1,9 @@
 import type { RestaurantInfo } from "@/types";
 
 /**
- * Coordenadas y dirección obtenidas al resolver el enlace corto de Google
- * Maps que proporcionó el usuario (https://maps.app.goo.gl/4fHZVQWiqoLZcXAk8)
- * y una geocodificación inversa de esas coordenadas. `address` es una
- * aproximación a nivel de calle — PENDIENTE de que el usuario la confirme o
- * la reemplace por la dirección exacta/referencia que usan normalmente.
+ * Coordenadas obtenidas al resolver el enlace corto de Google Maps que
+ * proporcionó el usuario (https://maps.app.goo.gl/4fHZVQWiqoLZcXAk8).
+ * `address` fue confirmada/corregida por el usuario.
  */
 export const restaurant: RestaurantInfo = {
   name: "La Excelencia",

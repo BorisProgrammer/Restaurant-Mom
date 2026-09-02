@@ -6,10 +6,13 @@ Guía rápida de "¿dónde modifico X?". Se irá completando fase a fase — lo 
 |---|---|
 | El menú (platos, precios, categorías) | `src/content/menu.ts` |
 | El teléfono | `src/content/restaurant.ts` (`phone` en formato `tel:`, `phoneDisplay` para mostrar) |
-| La dirección / mapa | `src/content/restaurant.ts` (`address`, `mapsUrl`, `mapsEmbedUrl`) — la `address` es aproximada, ver nota en el archivo |
+| La dirección / mapa | `src/content/restaurant.ts` (`address`, `mapsUrl`, `mapsEmbedUrl`) |
 | Instagram / TikTok | `src/content/social.ts` — poner la URL real en `url` cuando existan las cuentas (ahora están en `null`, se muestran como "próximamente") |
-| Los horarios | `src/content/hours.ts` *(pendiente — falta que envíes los horarios)* |
+| Los horarios | `src/content/hours.ts` — también alimenta el `openingHoursSpecification` del JSON-LD (`src/lib/schema.ts`) |
 | La misión / visión / historia | `src/content/about.ts` |
+| La descripción de Catering | `src/content/catering.ts` |
+| Las fotos del carrusel del Hero (local/chef) | `src/content/gallery.ts` (`heroGallery`) — agregar `{ src, alt }`; mientras esté vacío se ven placeholders |
+| Las fotos de la galería de Catering | `src/content/gallery.ts` (`cateringGallery`) — mismo patrón |
 | Los colores de marca | `src/app/globals.css` (tokens en `:root` / `@theme`) — ver [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) |
 | La tipografía | `src/app/layout.tsx` (declaración de Oswald/Inter) + `src/app/globals.css` (tokens `--font-display`/`--font-body`) |
 | El logo | `public/brand/logo.png` |
@@ -17,12 +20,15 @@ Guía rápida de "¿dónde modifico X?". Se irá completando fase a fase — lo 
 | Los enlaces del menú de navegación (Header/Footer/móvil) | `src/components/layout/Header.tsx` (constante `NAV_LINKS`, reutilizada por `Footer` y `MobileNav`) |
 | El Header / menú hamburguesa móvil | `src/components/layout/Header.tsx` y `src/components/layout/MobileNav.tsx` |
 | El Footer | `src/components/layout/Footer.tsx` |
-| El Hero (portada) y su placeholder de foto | `src/components/sections/Hero.tsx` — reemplazar el bloque `role="img"` con `next/image` cuando llegue la foto real |
+| El Hero (portada) y su carrusel de fotos | `src/components/sections/Hero.tsx` (presentación) + `src/content/gallery.ts` (`heroGallery`, datos) |
 | La sección de Nosotros / Historia | `src/components/sections/About.tsx` + `src/content/about.ts` |
 | La sección de Misión y Visión | `src/components/sections/MissionVision.tsx` + `src/content/about.ts` |
 | La sección de Menú | `src/components/sections/Menu.tsx` (presentación) + `src/content/menu.ts` (datos) |
 | La sección de Ubicación / el mapa | `src/components/sections/Location.tsx` (presentación) + `src/content/restaurant.ts` (datos) |
-| La sección de Contacto / ícono de redes | `src/components/sections/Contact.tsx` + `src/components/ui/SocialLinks.tsx` |
+| La sección de Contacto / horarios / ícono de redes | `src/components/sections/Contact.tsx` + `src/components/ui/SocialLinks.tsx` |
+| La sección de Catering y su galería de platos | `src/components/sections/Catering.tsx` + `src/content/catering.ts` + `src/content/gallery.ts` (`cateringGallery`) |
+| El carrusel de fotos (componente reutilizable) | `src/components/ui/Carousel.tsx` — flechas, puntos, autoplay que se pausa al interactuar y se desactiva con "reducir movimiento" |
+| El placeholder de "foto pendiente" (recuadro punteado) | `src/components/ui/ImagePlaceholder.tsx` — usado por el Hero, el Carousel y la Gallery |
 | Agregar una nueva sección a la home | Crear componente en `src/components/sections/`, importarlo en `src/app/page.tsx` |
 | El título/descripción SEO, Open Graph, Twitter Card | `src/app/layout.tsx` (constantes `TITLE`/`DESCRIPTION` + `export const metadata`) |
 | La imagen que aparece al compartir el sitio (Open Graph) | `public/brand/og-image.png` (1200×630) |

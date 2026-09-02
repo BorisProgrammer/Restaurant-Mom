@@ -11,7 +11,7 @@ El objetivo es que **modificar información nunca implique modificar componentes
 ## Por qué Next.js App Router + Server Components
 
 - La mayoría de las secciones son contenido estático (menú, horarios, ubicación): no necesitan JavaScript en el cliente. Renderizarlas como Server Components reduce el JS enviado al navegador y mejora el rendimiento (Core Web Vitals).
-- Solo se usan Client Components (`"use client"`) donde hay interactividad real: el menú de navegación móvil, y un eventual lightbox de galería.
+- Solo se usan Client Components (`"use client"`) donde hay interactividad real: el menú de navegación móvil (`MobileNav`) y el carrusel de fotos (`Carousel`). La galería de Catering (`Gallery`) es un grid estático sin interactividad, así que sigue siendo Server Component.
 - `next/image` y `next/font` optimizan imágenes y tipografía sin configuración manual.
 
 ## Estructura de carpetas
@@ -44,6 +44,10 @@ Mañana: `content/menu.ts` se reemplaza por una función `async function getMenu
 ## Overlays de pantalla completa (menú móvil)
 
 `MobileNav` (`src/components/layout/MobileNav.tsx`) renderiza su panel con `createPortal(..., document.body)` en vez de dejarlo anidado dentro de `<Header>`. Motivo concreto: `Header` usa `backdrop-blur` (`backdrop-filter`), y esa propiedad CSS convierte al elemento en el *containing block* de sus descendientes `position: fixed` — un panel `fixed inset-0` anidado ahí no cubre el viewport completo, solo el área del header. Se detectó probando visualmente en móvil (ver Fase 3). Cualquier overlay/modal futuro (lightbox de galería, etc.) debe usar el mismo patrón de portal si puede quedar anidado dentro de un elemento con `backdrop-filter`, `filter` o `transform`.
+
+## Fotos pendientes: carrusel y galería
+
+`content/gallery.ts` define dos arrays de `GalleryImage[]` (`heroGallery`, `cateringGallery`) que hoy están vacíos porque no hay fotografías reales. El patrón es el mismo en `components/ui/Carousel.tsx` y `components/ui/Gallery.tsx`: si el array de imágenes está vacío, se renderizan placeholders (`ImagePlaceholder`) con una etiqueta clara ("Foto del local — pendiente"); en cuanto el array tenga elementos, se renderizan las fotos reales con `next/image`. Agregar una foto real es solo agregar `{ src, alt }` al array correspondiente — ningún componente cambia. Se verificó con Playwright que el carrusel (flechas, puntos, autoplay) funciona correctamente en este estado de placeholders, y que respeta `prefers-reduced-motion` (con esa preferencia activa, el autoplay no se inicia).
 
 ## QA — responsive y funcional (Fases 6 y 9)
 
@@ -81,7 +85,7 @@ Si en el futuro se agregan fotos reales (Hero, Galería), hay que volver a corre
 - **Imagen de Open Graph** (`public/brand/og-image.png`, 1200×630): generada a partir del logo real sobre el fondo de marca — no es una fotografía inventada, es el mismo asset de marca que ya usa el resto del sitio.
 - **`robots.ts` / `sitemap.ts`** (`src/app/`): usan las convenciones de archivo de Next.js (`MetadataRoute.Robots` / `MetadataRoute.Sitemap`) — Next genera `/robots.txt` y `/sitemap.xml` automáticamente, no son archivos estáticos a mano.
 - **Dominio** (`src/lib/site.ts`, constante `SITE_URL`): lee `NEXT_PUBLIC_SITE_URL`; si no está configurada usa un placeholder (`https://laexcelencia.example.com`) — pendiente de que el usuario elija el dominio final (ver `docs/DEPLOYMENT.md`).
-- **JSON-LD Schema.org `Restaurant`** (`src/lib/schema.ts`, inyectado en `layout.tsx`): construido solo con datos reales de `content/restaurant.ts` y `content/social.ts` (nombre, teléfono, dirección, coordenadas, redes). No incluye `openingHoursSpecification` ni `aggregateRating` porque no hay datos reales para esos campos todavía — se agregan cuando existan, nunca se inventan.
+- **JSON-LD Schema.org `Restaurant`** (`src/lib/schema.ts`, inyectado en `layout.tsx`): construido solo con datos reales de `content/restaurant.ts`, `content/hours.ts` y `content/social.ts` (nombre, teléfono, dirección, coordenadas, horarios, redes). `openingHoursSpecification` se arma traduciendo el texto en español de `hours.ts` ("Lunes a viernes") a los días que espera schema.org ("Monday".."Friday"); ver `expandDays()` en `schema.ts` si se agrega un formato de día que no reconozca. No incluye `aggregateRating` porque no hay reseñas reales todavía — se agrega cuando existan, nunca se inventa.
 - **Favicon / iconos de app** (`src/app/icon.png`, `apple-icon.png`, `favicon.ico`): generados a partir de los colores y el ícono de marca reales (no es el logo de Next.js/Vercel por defecto que trae `create-next-app`).
 
 ## Accesibilidad

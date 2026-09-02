@@ -25,6 +25,21 @@ export interface AboutContent {
   vision: string;
 }
 
+export interface CateringContent {
+  description: string;
+}
+
+export interface HoursEntry {
+  day: string;
+  open: string;
+  close: string;
+}
+
+export interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
 export interface RestaurantInfo {
   name: string;
   tagline: string;

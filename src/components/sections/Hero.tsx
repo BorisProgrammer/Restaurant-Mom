@@ -1,7 +1,27 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { Carousel } from "@/components/ui/Carousel";
 import { Container } from "@/components/ui/Container";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { heroGallery } from "@/content/gallery";
+
+const PLACEHOLDER_LABELS = ["Foto del local", "Foto del local", "Foto de la chef"];
 
 export function Hero() {
+  const slides =
+    heroGallery.length > 0
+      ? heroGallery.map((image) => (
+          <Image
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
+        ))
+      : PLACEHOLDER_LABELS.map((label) => <ImagePlaceholder key={label} label={label} />);
+
   return (
     <section id="inicio" className="scroll-mt-32 py-16 sm:py-20 lg:py-28">
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -26,21 +46,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div
-          className="order-first flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 rounded-3xl border-2 border-dashed border-charcoal/20 bg-charcoal/[0.03] text-muted lg:order-last lg:aspect-square"
-          role="img"
-          aria-label="Espacio reservado para una fotografía del local o de un plato, pendiente de recibir"
-        >
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path
-              d="M4 8a2 2 0 0 1 2-2h1.17a2 2 0 0 0 1.66-.89l.34-.5A2 2 0 0 1 10.83 4h2.34a2 2 0 0 1 1.66.89l.34.5a2 2 0 0 0 1.66.89H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            />
-            <circle cx="12" cy="13" r="3.25" stroke="currentColor" strokeWidth={1.5} />
-          </svg>
-          <p className="px-6 text-center text-sm font-medium">Foto del local — pendiente</p>
-        </div>
+        <Carousel
+          slides={slides}
+          label="Fotos del local y del equipo"
+          className="order-first aspect-[4/3] w-full lg:order-last lg:aspect-square"
+        />
       </Container>
     </section>
   );

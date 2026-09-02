@@ -2,11 +2,10 @@
 
 ## Estado actual
 
-**Completado:** configuración del proyecto, identidad visual (paleta y tipografía extraídas del logo real), Header/Hero/Footer, contenido (Nosotros, Misión, Visión, Menú, Ubicación con mapa, Contacto, redes sociales), SEO (metadata, Open Graph, JSON-LD, sitemap/robots, favicon real), accesibilidad auditada (axe-core, 0 violaciones), efecto visual "liquid glass", scroll suave, rendimiento auditado con Lighthouse (Performance/Accessibility/Best Practices/SEO en 100), y una pasada de pruebas responsive/funcional en 8 anchos de pantalla.
+**Completado:** configuración del proyecto, identidad visual (paleta y tipografía extraídas del logo real), Header/Hero/Footer, contenido (Nosotros, Misión, Visión, Menú, Catering, Ubicación con mapa, Contacto, horarios, redes sociales), carrusel de fotos en el Hero y galería de fotos en Catering (ambos con placeholders, listos para recibir fotos reales), SEO (metadata, Open Graph, JSON-LD con horarios incluidos, sitemap/robots, favicon real), accesibilidad auditada (axe-core, 0 violaciones), efecto visual "liquid glass", scroll suave, rendimiento auditado con Lighthouse (Performance/Accessibility/Best Practices/SEO en 100), y una pasada de pruebas responsive/funcional en 8 anchos de pantalla.
 
 **Pendiente por falta de datos (no por falta de tiempo):**
-- **Horarios de atención** — falta que el usuario los proporcione. Cuando lleguen: crear `src/content/hours.ts` y una sección `Hours` en `components/sections/`.
-- **Galería de fotos** — falta que el usuario envíe fotografías reales del local/platos. Mientras tanto el Hero usa un placeholder claramente marcado ("Foto del local — pendiente") en vez de una imagen inventada.
+- **Fotos reales** — del local, del equipo/chef (carrusel del Hero) y de los platos (galería de Catering). Los espacios y componentes ya están construidos (`content/gallery.ts`); agregar una foto es solo sumar `{ src, alt }` al array correspondiente, ver `docs/CONTENT.md`.
 
 **No implementado, a propósito** (ver más abajo): CMS, reservas, pedidos, panel administrativo, base de datos, estadísticas.
 

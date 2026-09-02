@@ -12,7 +12,7 @@ export const restaurant: RestaurantInfo = {
   tagline: "Un gusto para tu paladar",
   phone: "+593986877897",
   phoneDisplay: "098 687 7897",
-  address: "Av. Francisco Moscoso, Cuenca (sector Huayna Cápac)",
+  address: "Av. Francisco Moscoso 580 y Jacinto Flores, Cuenca (sector Huayna Cápac)",
   mapsUrl: "https://maps.app.goo.gl/4fHZVQWiqoLZcXAk8",
   mapsEmbedUrl: "https://www.google.com/maps?q=-2.916474,-79.0012035&z=17&output=embed",
   coordinates: {

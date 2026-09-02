@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# La Excelencia — Sitio Web
 
-## Getting Started
+Sitio web institucional/informativo para el restaurante **La Excelencia** ("Un gusto para tu paladar"). Construido con Next.js (App Router), TypeScript y Tailwind CSS, sin backend ni base de datos en esta primera versión — pensado para poder añadirlos más adelante sin reconstruir el frontend (ver [docs/FUTURE_ROADMAP.md](docs/FUTURE_ROADMAP.md)).
 
-First, run the development server:
+## Empezar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Otros comandos:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # build de producción
+npm run start   # sirve el build de producción
+npm run lint    # ESLint
+```
 
-## Learn More
+## Documentación
 
-To learn more about Next.js, take a look at the following resources:
+Antes de modificar algo, revisa:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[PROJECT_MAP.md](PROJECT_MAP.md)** — "¿Dónde modifico X?" Mapa rápido del proyecto.
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — cómo está organizado el código y por qué.
+- **[docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md)** — colores, tipografía, espaciados, componentes base.
+- **[docs/CONTENT.md](docs/CONTENT.md)** — cómo editar menú, horarios, redes, datos de contacto.
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** — cómo desplegar el sitio.
+- **[docs/FUTURE_ROADMAP.md](docs/FUTURE_ROADMAP.md)** — plan de evolución (CMS, reservas, backend, etc.).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Stack
 
-## Deploy on Vercel
+- [Next.js](https://nextjs.org) (App Router, Server Components por defecto)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Estado del proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+En desarrollo por fases. Ver [docs/FUTURE_ROADMAP.md](docs/FUTURE_ROADMAP.md) para el detalle de qué fase está completa y qué sigue.

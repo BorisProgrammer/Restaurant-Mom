@@ -39,7 +39,7 @@ export const menu: MenuCategory[] = [
       { name: "Café", price: 0.6 },
       { name: "Batido", price: 1.25 },
       { name: "Jugo", price: 1.0 },
-      { name: "Huevos revueltos", price: 2.0 },
+      { name: "Huevos revueltos", price: 1.0 },
       { name: "Humita", price: 0.75 },
       { name: "Empanada", price: 1.0 },
       { name: "Tostada", price: 0.75 },

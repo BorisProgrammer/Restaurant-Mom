@@ -12,7 +12,7 @@ import type { MenuCategory } from "@/types";
 export const menu: MenuCategory[] = [
   {
     id: "almuerzos",
-    name: "Almuerzos",
+    name: "Platos a la Carta",
     items: [
       { name: "Seco de pollo", price: 2.5 },
       { name: "Seco de carne", price: 2.5 },

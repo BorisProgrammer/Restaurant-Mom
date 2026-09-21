@@ -11,7 +11,7 @@ export function Menu() {
         <SectionHeading
           eyebrow="Nuestra propuesta"
           title="Menú"
-          description="Este es nuestro menú actual — seguimos incorporando nuevos platos, asados y alitas BBQ."
+          description="Este es nuestro menú actual — seguimos incorporando nuevos platos y alitas BBQ."
         />
 
         <div className="mt-12 flex flex-col gap-12">

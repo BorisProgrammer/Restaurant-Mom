@@ -18,7 +18,7 @@ export function Catering() {
           images={cateringGallery}
           placeholderLabel="Foto de un plato"
           placeholderCount={6}
-          className="mt-12"
+          className="mx-auto mt-12 max-w-2xl"
         />
       </Container>
     </section>

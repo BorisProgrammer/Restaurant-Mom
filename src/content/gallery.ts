@@ -17,4 +17,11 @@ export const heroGallery: GalleryImage[] = [
 ];
 
 // Fotos de platos para la sección de Catering.
-export const cateringGallery: GalleryImage[] = [];
+export const cateringGallery: GalleryImage[] = [
+  { src: "/fotos/catering/catering-2.jpeg", alt: "La chef junto a una mesa de cócteles de camarón preparada para un evento" },
+  { src: "/fotos/catering/catering-1.jpeg", alt: "Mesa de evento con platos servidos de arroz verde, carnes y ensalada de choclo" },
+  { src: "/fotos/catering/catering-3.jpeg", alt: "Plato con arroz verde, pierna de pollo en salsa, carne al horno, papas gratinadas y ensalada" },
+  { src: "/fotos/catering/alitas-bbq.jpeg", alt: "Alitas BBQ" },
+  { src: "/fotos/catering/camarones-apanados.jpeg", alt: "Camarones apanados" },
+  { src: "/fotos/catering/churrasco.jpeg", alt: "Churrasco" },
+];

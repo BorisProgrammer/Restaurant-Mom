@@ -22,7 +22,13 @@ export function Gallery({
       {tiles.map((image, i) => (
         <div key={i} className="relative aspect-square overflow-hidden rounded-2xl">
           {image ? (
-            <Image src={image.src} alt={image.alt} fill className="object-cover" />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 640px) 33vw, 50vw"
+              className="object-cover"
+            />
           ) : (
             <ImagePlaceholder label={placeholderLabel} />
           )}
